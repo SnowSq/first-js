@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="product-box"></div>
+    <div class="cart-box">
+      <div class="cart">
+        <img class="card__img" src="" alt="" />
+        <div class="card__name"></div>
+        <div class="card__price"></div>
+        <div class="card__color"></div>
+        <div class="card__size"></div>
+        <div class="card__quantity"></div>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          imgSrc: 'https://picsum.photos/1920/1080?random=1',
+          name: 'ELLERY X MO CAPSULE',
+          text:
+            'Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.',
+          price: 52
+        },
+        {
+          id: 2,
+          imgSrc: 'https://picsum.photos/1920/1080?random=2',
+          name: "ELLERY 2 X M'O 2",
+          text:
+            'Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.',
+          price: 152
+        },
+        {
+          id: 3,
+          imgSrc: 'https://picsum.photos/1920/1080?random=3',
+          name: 'Name product',
+          text:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, nihil.',
+          price: 102
+        }
+      ]
+      const productContent = document.querySelector('.product-box')
+
+      function createProduct (ricipeProduct) {
+        const product = document.createElement('div')
+        product.classList.add('product')
+
+        const productImg = document.createElement('img')
+        productImg.src = ricipeProduct.imgSrc
+        productImg.classList.add('product__img')
+        product.append(productImg)
+
+        const productBoxText = document.createElement('div')
+        productBoxText.classList.add('product__content')
+        product.append(productBoxText)
+
+        const productHeading = document.createElement('h2')
+        productHeading.classList.add('product__heading')
+        productHeading.textContent = ricipeProduct.name
+        productBoxText.append(productHeading)
+
+        const productText = document.createElement('p')
+        productText.classList.add('product__text')
+        productText.textContent = ricipeProduct.text
+        productBoxText.append(productText)
+
+        const productPrice = document.createElement('p')
+        productPrice.classList.add('product__price')
+        productPrice.textContent = `$ ${ricipeProduct.price.toFixed(2)}`
+        productBoxText.append(productPrice)
+        return product
+      }
+
+      products.forEach(element => {
+        productContent.append(createProduct(element))
+      })
+
+      const cart = [
+        {
+          id: 1,
+          imgSrc: 'https://picsum.photos/1920/1080?random=3',
+          namе: 'MANGO  PEOPLE  T-SHIRT',
+          price: 300,
+          color: Red,
+          size: Xl,
+          quantity: 2
+        },
+        {
+          id: 2,
+          imgSrc: 'https://picsum.photos/1920/1080?random=2',
+          namе: 'MANGO  PEOPLE  T-SHIRT',
+          price: 300,
+          color: Red,
+          size: Xl,
+          quantity: 2
+        }
+      ]
+      const cardContent = document.querySelector('.cart-box')
+
+      function createCard (ricipeCard) {
+        const card = document.createElement('div')
+        card.classList.add('card')
+
+        const cardImg = document.createElement('img')
+        cardImg.src = ricipeCard.imgSrc
+        cardImg.classList.add('card__img')
+        card.append(cardImg)
+
+        const cardHeading = document.createElement('div')
+        cardHeading.classList.add('card__name')
+        cardHeading.textContent = ricipeCard.name
+        cardBoxText.append(cardHeading)
+
+        const cardPrice = document.createElement('div')
+        cardPrice.classList.add('card__price')
+        cardPrice.textContent = `$ ${ricipeCard.price.toFixed(2)}`
+        cardBoxText.append(cardPrice)
+
+        const cardColor = document.createElement('div')
+        cardColor.classList.add('card__color')
+        cardColor.textContent = ricipeCard.color
+        cardBoxText.append(cardColor)
+
+        const cardSize = document.createElement('div')
+        cardSize.classList.add('card__size')
+        cardSize.textContent = ricipeCard.size
+        cardBoxText.append(cardSize)
+
+        const cardQuantity = document.createElement('div')
+        cardQuantity.classList.add('card__quantity')
+        cardQuantity.textContent = ricipeCard.quantity
+        cardBoxText.append(cardQuantity)
+        return card
+      }
+
+      card.forEach(element => {
+        cardContent.append(createCard(element))
+      })
+    </script>
+  </body>
+</html>
